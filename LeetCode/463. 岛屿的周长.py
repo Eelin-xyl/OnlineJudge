@@ -14,7 +14,7 @@ for i in range(len(grid)):
         ans += 1
         if grid[i][len(grid[i]) - 2] == 0:
             ans += 1
-    if len(grid[i]) == 2: continue
+    if len(grid[i]) == 2:   continue
     for j in range(1, len(grid[i]) - 1):
         if grid[i][j] == 0:
             continue
@@ -42,12 +42,12 @@ for i in range(len(g)):
         if len(g[i]) == 1:   
             ans += 1
             continue
-    if len(g[i]) == 1:   continue
+    if len(g[i]) == 1:  continue
     if g[i][len(g[i]) - 1] == 1:
         ans += 1
         if g[i][len(g[i]) - 2] == 0:
             ans += 1
-    if len(g[i]) == 2: continue
+    if len(g[i]) == 2:  continue
     for j in range(1, len(g[i]) - 1):
         if g[i][j] == 0:
             continue
