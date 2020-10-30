@@ -22,6 +22,7 @@ for i in range(len(grid)):
             ans += 1
         if grid[i][j + 1] == 0:
             ans += 1
+            
 g = []
 c = []
 a = 0
