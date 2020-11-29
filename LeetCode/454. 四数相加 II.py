@@ -1,14 +1,9 @@
-A = [ 1, 2]
-B = [-2,-1]
-C = [-1, 2]
-D = [ 0, 2]
+A = [-1, -1]
+B = [-1, 1]
+C = [-1, 1]
+D = [1, -1]
 
 if not A or not B or not C or not D:
-    print(0)
-
-if A[-1] + B[-1] + C[-1] + D[-1] < 0:
-    print(0)
-if A[0] + B[0] + C[0] + D[0] > 0:
     print(0)
 
 ans = 0
@@ -19,41 +14,54 @@ for i in A:
         da[i] = 1
     else:
         da[i] += 1
-sorted(da.keys())
+sa = {}
+for i in sorted(da):
+    sa[i] = da[i]
 db = {}
 for i in B:
     if i not in db:
         db[i] = 1
     else:
         db[i] += 1
-sorted(db.keys())
+sb = {}
+for i in sorted(db):
+    sb[i] = db[i]
 dc = {}
 for i in C:
     if i not in dc:
         dc[i] = 1
     else:
         dc[i] += 1
-sorted(dc.keys())
+sc = {}
+for i in sorted(dc):
+    sc[i] = dc[i]
 dd = {}
 for i in D:
     if i not in dd:
         dd[i] = 1
     else:
         dd[i] += 1
-sorted(dd.keys())
+sd = {}
+for i in sorted(dd):
+    sd[i] = dd[i]
 
-for a in da:
-    if a + db[0] + dc[0] + dd[0] > 0:
+A = [i for i in sa.keys()]
+B = [i for i in sb.keys()]
+C = [i for i in sc.keys()]
+D = [i for i in sd.keys()]
+
+for a in A:
+    if a + B[0] + C[0] + D[0] > 0:
         break
-    for b in db:
-        if a + b + dc[0] + dd[0] > 0:
+    for b in B:
+        if a + b + C[0] + D[0] > 0:
             break
-        for c in dc:
-            if a + b + c + dd[0] > 0:
+        for c in C:
+            if a + b + c + D[0] > 0:
                 break
-            for d in dd:
+            for d in D:
                 if a + b + c + d > 0:
                     break
                 if a + b + c + d == 0:
-                    ans += 1
+                    ans += sa[a] * sb[b] * sc[c] * sd[d]
 print(ans)
