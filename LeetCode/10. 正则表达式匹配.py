@@ -1,32 +1,28 @@
 def isMatch(s, p):
     p += '+'
     p = p.split('*')
-    dic = {}
-    for i in p:
-        for j in i:
-            if j not in dic:
-                dic[j] = 1
+    p = p[:-1]
+    ct = 0
+    a = 0
+    num = 0
+    k = 0
+    while a < len(s):
+        for i in range(a, len(s)):
+            if s[i] == s[a]:
+                ct += 1
+                continue
             else:
-                dic[j] += 1
-        dic[j] = float('inf')
-    del dic['+']
-    for v in s:
-        if v not in dic or dic[v] == 0:
-            if '.' in dic and dic['.'] >0:
-                dic['.'] -= 1
-            else:
-                return False
-        elif dic[v] == 0:
-            return False
-        else:
-            dic[v] -= 1
-    for k in dic:
-        if dic[k] == float('inf'):
-            continue
-        if k not in s and k != '.':
-            return False
-        if dic[k] != 0 and dic[k] != float('inf'):
-            return False
-    return True
+                break
+        while k < len(p):
+            for j in range(k, len(s)):
+                if s[j] == '*':
+                    break
+                if s[j] == s[k]:
+                    num += 0
+                    continue
+                # elif s[j] =
+        ct = 0
+        a = i
 
-print(isMatch(s = "aaba", p = "ab*a*c*a"))
+
+print(isMatch(s="aaba", p="ab*a*c*a"))
